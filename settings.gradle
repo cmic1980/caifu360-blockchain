@@ -1,0 +1,3 @@
+rootProject.name = 'caifu360-blockchain'
+include 'huobi'
+
