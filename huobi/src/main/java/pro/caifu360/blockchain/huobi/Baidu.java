@@ -6,12 +6,17 @@ import org.openqa.selenium.chrome.ChromeOptions;
 /**
  * @author yu.miao
  */
-public class WebSite {
+public class Baidu {
+    private String driver;
 
-    public void go(){
+    public Baidu(String driver) {
+        this.driver = driver;
+    }
+
+    public void go() {
         ChromeOptions options = new ChromeOptions();
         // options.addArguments("-headless");
-        System.setProperty("webdriver.chrome.driver", "D:/dev/drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", this.driver);
         var browser = new ChromeDriver(options);
         browser.get("https://www.baidu.com");
     }
