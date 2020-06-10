@@ -20,4 +20,6 @@ public class Baidu {
         var browser = new ChromeDriver(options);
         browser.get("https://www.baidu.com");
     }
+
+
 }

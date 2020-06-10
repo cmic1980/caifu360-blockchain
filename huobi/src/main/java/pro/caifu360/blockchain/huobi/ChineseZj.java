@@ -61,7 +61,7 @@ public class ChineseZj {
             var panelHeading = browser.findElementByCssSelector(".panel-heading");
             var title = panelHeading.getText();
             if (addTitle) {
-                title = "µÚ " + i + " ÕÂ  " + title;
+                title = "ç¬¬ " + i + " ç«   " + title;
             }
 
             FileUtils.write(file, title, charset, true);
