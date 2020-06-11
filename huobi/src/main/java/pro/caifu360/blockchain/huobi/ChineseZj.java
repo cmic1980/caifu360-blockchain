@@ -5,6 +5,8 @@ import org.apache.commons.io.FilenameUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +14,12 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author yu.miao
+ */
 public class ChineseZj {
+    private final static Logger logger = LoggerFactory.getLogger(ChineseZj.class);
+
     public void download(String rootDir, String rootUrl, String bookUrl) throws IOException {
         this.download(rootDir, rootUrl, bookUrl, true);
     }

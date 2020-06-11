@@ -9,15 +9,22 @@ import org.apache.commons.io.IOUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author yu.miao
+ */
 public class Attackers {
 
     private static final String rootPath = "D:/video/4/";
+
+    private final static Logger logger = LoggerFactory.getLogger(Attackers.class);
 
     public List<Work> getWorkList(String rootUrl) {
         var options = new ChromeOptions();
@@ -102,23 +109,18 @@ public class Attackers {
             var bytes = response.body().bytes();
             FileUtils.writeByteArrayToFile(file, bytes);
 
-            System.out.println(String.format("Download image [%s] ...", url));
-
+            logger.info(String.format("Download image [%s] ...", url));
         } catch (IOException e) {
-            System.out.println(e.toString());
+            logger.error("Save file failure: ", e);
         }
-
-
-
     }
 
     public static void main(String[] args) throws IOException {
-        System.out.println("Start ...");
+        logger.info("Start ...");
 
         Attackers attackers = new Attackers();
         var list = attackers.getWorkList("https://www.attackers.net/works/list/date/20200507/");
-        System.out.println("Get work list complete ...");
-
+        logger.info("Get work list complete ...");
 
         for (var work : list) {
             String workDir = attackers.mkWorkDir(work);
